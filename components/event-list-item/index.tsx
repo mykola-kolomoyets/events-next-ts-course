@@ -4,7 +4,7 @@ import cn from "classnames";
 import { Event } from "./../../data";
 import { convertDate } from "../../utils/fn";
 
-import LinkButton from "../UI/LinkButton";
+import Button from "../UI/button";
 
 import styles from "./event-list-item.module.scss";
 import CalendarIcon from "../icons/calendar-icon";
@@ -49,12 +49,12 @@ const EventListItem: FC<EventListItemProps> = ({ event }) => {
         </div>
 
         <div className={styles.listItemDetails}>
-          <LinkButton to={`/events/${id}`}>
+          <Button to={`/events/${id}`}>
             Explore Event
             <span className={styles.listItemIcon}>
               <ArrowRight />
             </span>
-          </LinkButton>
+          </Button>
         </div>
       </article>
     </li>

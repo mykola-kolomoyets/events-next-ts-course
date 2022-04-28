@@ -1,0 +1,10 @@
+.navItem {
+  list-style: none;
+  text-decoration: none;
+  color: #74dacc;
+  font-size: 1rem;
+
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+  }
+}

@@ -21,7 +21,9 @@ const EventDetails: NextPage = () => {
   return (
     <Fragment>
       <EventSummary title={title} />
+
       <EventLogistics {...{ ...eventLogisticsProps, imageAlt: title }} />
+
       <EventContent>
         <p>{description}</p>
       </EventContent>
