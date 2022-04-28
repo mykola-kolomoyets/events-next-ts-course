@@ -1,7 +1,10 @@
 import type { NextPage } from "next";
+import EventList from "../../components/event-list";
+import EventsData from "../../data";
 
 const Events: NextPage = () => {
-  return <h1>Events page</h1>;
+  const events = EventsData.getAllEvents();
+  return <EventList events={events} />;
 };
 
 export default Events;
