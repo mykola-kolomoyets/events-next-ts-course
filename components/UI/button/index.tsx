@@ -8,13 +8,10 @@ import Link from "next/link";
 
 import styles from "./button.module.scss";
 
-export type ButtonProps = PropsWithChildren<
-  {
-    to?: string;
-  } & Partial<
-    DetailedHTMLProps<HTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
-  >
->;
+export type ButtonProps = PropsWithChildren<{
+  to?: string;
+}> &
+  DetailedHTMLProps<HTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
 
 const LinkButton: FC<ButtonProps> = ({ children, to, ...props }) => {
   return Boolean(to) ? (
