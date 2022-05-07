@@ -1,19 +1,15 @@
-import {
-  DetailedHTMLProps,
-  FC,
-  HTMLAttributes,
-  PropsWithChildren
-} from "react";
+import { FC, PropsWithChildren } from "react";
 import Link from "next/link";
 
 import styles from "./button.module.scss";
+import { Detailed } from "../../../utils/types";
 
 export type ButtonProps = PropsWithChildren<{
   to?: string;
 }> &
-  DetailedHTMLProps<HTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
+  Detailed<HTMLButtonElement>;
 
-const LinkButton: FC<ButtonProps> = ({ children, to, ...props }) => {
+const Button: FC<ButtonProps> = ({ children, to, ...props }) => {
   return Boolean(to) ? (
     <Link href={to!}>
       <a className={styles.button}>{children}</a>
@@ -25,4 +21,4 @@ const LinkButton: FC<ButtonProps> = ({ children, to, ...props }) => {
   );
 };
 
-export default LinkButton;
+export default Button;
