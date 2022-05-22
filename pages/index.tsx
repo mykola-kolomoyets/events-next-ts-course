@@ -1,12 +1,30 @@
-import type { NextPage } from "next";
-import EventsData from "../data";
+import type { GetStaticProps, NextPage } from "next";
+import EventList from "../components/event-list";
+import EventsData, { Event } from "../data";
+import EventsService from "../data/events";
 
-const Home: NextPage = () => {
-  const featuresEvents = EventsData.getFeaturedEvents();
-
-  console.log(featuresEvents);
-
-  return <h1>Home page</h1>;
+type HomePageProps = {
+  featuredEvents: Event[];
 };
+
+const Home: NextPage<HomePageProps> = ({ featuredEvents }) => {
+  console.log(featuredEvents);
+
+  return <EventList events={featuredEvents} />;
+};
+
+const getStaticProps: GetStaticProps<HomePageProps> = async (context) => {
+  const request = await EventsService.getFeaturedEvents();
+
+  const featuredEvents = request.data;
+
+  return {
+    props: {
+      featuredEvents
+    }
+  };
+};
+
+export { getStaticProps };
 
 export default Home;
